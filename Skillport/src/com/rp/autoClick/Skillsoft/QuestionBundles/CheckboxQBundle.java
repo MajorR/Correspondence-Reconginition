@@ -60,7 +60,7 @@ public class CheckboxQBundle implements IQuestionBundle {
 			}
 		}
 		// Get correct marks
-		if ( r.exists( CheckboxQBundle.ans_correct,4 ) != null ) {
+		if ( r.exists( CheckboxQBundle.ans_correct, 4 ) != null ) {
 			n = r.findAll( CheckboxQBundle.ans_correct );
 			while ( ( n != null ) && n.hasNext( ) ) {
 				this.answers.add( new idElement<Match>( n.next( ), 1 ) );
@@ -88,10 +88,9 @@ public class CheckboxQBundle implements IQuestionBundle {
 	}
 
 	@Override
-	public boolean initialAttempt( final Region r, final int timeout )
+	public CheckboxQBundle initialAttempt( final Region r, final int timeout )
 			throws FindFailed {
-		if ( r.exists( CheckboxQBundle.select_checkbox ) == null )
-			return false;
+		if ( r.exists( CheckboxQBundle.select_checkbox ) == null ) return this;
 		Iterator<Match> n;
 		n = r.findAll( CheckboxQBundle.select_checkbox );
 		// Get checkboxes.
@@ -106,12 +105,18 @@ public class CheckboxQBundle implements IQuestionBundle {
 			}
 		} );
 		// Don't attempt this question without the answers.
-		return true;
+		return this;
 	}
 
 	@Override
 	public boolean isAnsweredCorrect() {
 		return this.isCorrect;
+	}
+
+	@Override
+	public IQuestionBundle newBundle() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
@@ -127,8 +132,8 @@ public class CheckboxQBundle implements IQuestionBundle {
 
 	@Override
 	public boolean testForQuestionType( final Region r, final int timeout ) {
-		final boolean out = ( r
-				.exists( CheckboxQBundle.select_checkbox,timeout ) != null );
+		final boolean out = ( r.exists( CheckboxQBundle.select_checkbox,
+				timeout ) != null );
 		Debug.log( "Testing For Checkboxes ... " + out );
 		return out;
 	}

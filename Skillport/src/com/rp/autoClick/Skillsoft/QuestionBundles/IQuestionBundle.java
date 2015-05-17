@@ -12,13 +12,6 @@ import org.sikuli.script.Region;
  */
 public interface IQuestionBundle {
 
-	/**
-	 * Returns copy of question's contents for additive purposes.
-	 * 
-	 * @return
-	 */
-	public abstract IQuestionBundle newBundle();
-
 	public abstract boolean getAnswers( Region r, int timeout )
 			throws FindFailed;
 
@@ -36,12 +29,19 @@ public interface IQuestionBundle {
 	 *            Time in seconds for attempt.
 	 * @return returns if attempt was successful.
 	 */
-	public abstract boolean initialAttempt( Region r, int timeout )
+	public abstract IQuestionBundle initialAttempt( Region r, float timeout )
 			throws FindFailed;
 
 	public abstract boolean isAnsweredCorrect();
 
-	public abstract boolean retryAnswer( Region r, int timeout )
+	/**
+	 * Returns copy of question's contents for additive purposes.
+	 * 
+	 * @return
+	 */
+	public abstract IQuestionBundle newBundle();
+
+	public abstract boolean retryAnswer( Region r, float timeout )
 			throws FindFailed;
 
 	/**
@@ -52,5 +52,5 @@ public interface IQuestionBundle {
 	 * @param r
 	 * @return If question is detected.
 	 */
-	public boolean testForQuestionType( Region r, int timeout );
+	public boolean testForQuestionType( Region r, float timeout );
 }
