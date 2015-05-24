@@ -93,8 +93,6 @@ public class MainRunner {
 															"img/folder_closed.PNG" );
 	final static Pattern	start_play				= new Pattern(
 															"img/startPlay.PNG" );
-	final static Pattern	drag_drop_slot			= new Pattern(
-															"img/CourseType2/Test/DragDrop/slot.PNG" );
 
 	final static Pattern	tableContentsButton		= new Pattern(
 															"img/CourseType2/tableContentsButton.PNG" );

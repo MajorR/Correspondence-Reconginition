@@ -16,6 +16,13 @@ public class DP {
 	static int	REFERENCE_RES_HEIGHT	= DP.getScreenHeight( );
 
 
+	/**
+	 * Returns a scaled image of {@literal image} to match 
+	 * @param image
+	 * @param ref_width
+	 * @param ref_height
+	 * @return
+	 */
 	public static BufferedImage getImg( final BufferedImage image,
 			final int ref_width, final int ref_height ) {
 		return DP.getScaledImage( image,
@@ -30,6 +37,9 @@ public class DP {
 
 	public static Location getLoc( final int x, final int y,
 			final Dimension reference ) {
+		//dfd
+		//sfsfsd
+		
 		return DP.getLoc( x, y, reference.width, reference.height );
 	}
 

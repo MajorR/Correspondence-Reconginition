@@ -28,6 +28,8 @@ public class T2CheckboxQBundle extends DynamicVisualQuestionBundle {
 
 	@Override
 	public boolean getAnswers( final Region r, final int timeout )
+	
+	
 			throws FindFailed {
 
 		return false;
